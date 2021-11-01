@@ -10,16 +10,16 @@ import UIKit
 class task: UITableViewCell {
 
     @IBOutlet weak var checkTask: UIImageView!
-    @IBOutlet weak var checkButton: UIButton!
+    
     @IBOutlet weak var addTask: UILabel!
     
-    
-    @IBAction func checkAction(_ sender: Any) {
-    }
+    //var ischeck = false
+  
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

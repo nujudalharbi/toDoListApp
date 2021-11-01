@@ -8,7 +8,7 @@
 import UIKit
 struct Task{
     var name = ""
-//    var checked = false
+    var checked = false
     
     
     
@@ -18,9 +18,15 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
    
     
    
-    var tasks : [Task] = []
+    var tasks : [Task] = [Task(name: "One", checked: true)]
 
     @IBOutlet weak var tableView: UITableView!
+    
+    
+
+    
+   
+    
     override func viewDidLoad() {
         
         tasks.append(Task(name : "Test object "))
@@ -28,20 +34,46 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         tableView.delegate = self
         tableView.dataSource = self
         
+//        self.tasks = UserDefaults.standard.stringArray(forKey: "items") ?? []
         
-        // Do any additional setup after loading the view.
+       
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (tasks[indexPath.row].checked) {
+            tasks[indexPath.row].checked = false
+        } else {
+            tasks[indexPath.row].checked = true
+        }
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! task
-        cell.addTask.text = tasks[indexPath.row].name
-//        if tasks[indexPath.row].checked{
-//            cell.checkButton.setBackgroundImage( <#UIImage?#>, for: UIControlState.normal)
+        
+//        if cell.ischeck == false {
+//            cell.checkTask.image = UIImage(named: "true1")
+//            cell.ischeck = true
+//        }else {
+//            cell.checkTask.image = nil
+//            cell.ischeck = false
 //
 //        }
+   
+        
+        
+        cell.addTask.text = tasks[indexPath.row].name
+        
+        if tasks[indexPath.row].checked {
+            cell.checkTask.image = UIImage(named: "true11")
+        } else {
+            cell.checkTask.image = nil
+        }
+        
         return cell
     }
     
@@ -51,9 +83,10 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
        
     }
     func addTask(name: String) {
+       
         tasks.append(Task(name :  name))
         tableView.reloadData()
-    }
+        }
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -61,7 +94,39 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             
             tasks.remove(at: indexPath.row)
             tableView.reloadData()
+      
         }
+ 
+        
+        func update(){}
+        
+        func removeAll(){}
+        
+        
+        
+//
+//        func  viewDidAppear(_animated : Bool){
+//            let itemObject = UserDefaults.standard.object(forKey: "items")
+//            if let tempItem = itemObject as? [String]{
+//
+//                tasks = tempItem
+//
+//            }
+//            tableView.reloadData()
+//        }
+        
+        
+
+
+    
+    
     }
+    
+    
+    
+    
+    
+    
+    
 }
 
