@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddTask {
-    func addTask(name : String)
+    func addTask(name : String, priority: Int)
 }
 
 class addViewController: UIViewController  {
@@ -17,30 +17,27 @@ class addViewController: UIViewController  {
     @IBOutlet weak var importance: UISegmentedControl!
     
     
-    
-    
-    
     @IBOutlet weak var segmentText: UITextField!
     
     @IBOutlet weak var taskNameOutlet: UITextField!
    
-    
+
     @IBAction func chanheSegment(_ sender: Any) {
-        
-        if importance.selectedSegmentIndex == 0{
-            taskNameOutlet.text = "low"
-            
-        }
-        if importance.selectedSegmentIndex == 1{
-            taskNameOutlet.text = "Medium"
-        }
-        
-        if importance.selectedSegmentIndex == 2{
-            
-            taskNameOutlet.text =
-            "High"
-            taskNameOutlet.background 
-        }
+//
+//        if importance.selectedSegmentIndex == 0{
+//            //taskNameOutlet.text = "low"
+//
+//
+//        }
+//        if importance.selectedSegmentIndex == 1{
+//            //taskNameOutlet.text = "Medium"
+//        }
+//
+//        if importance.selectedSegmentIndex == 2{
+//
+//            //taskNameOutlet.text = "High"
+//
+//        }
     }
     
     
@@ -50,13 +47,9 @@ class addViewController: UIViewController  {
     @IBAction func addAction(_ sender: Any) {
         if taskNameOutlet.text != ""{
             
-            delegate?.addTask(name : taskNameOutlet.text!)
+            delegate?.addTask(name : taskNameOutlet.text!, priority: importance.selectedSegmentIndex)
             navigationController?.popViewController(animated: true)
             
-//
-//            if let text =  taskNameOutlet.text , !text.isEmpty{
-//            let newEntry = [text]
-//                UserDefaults.standard.setValue(newEntry , forKey: "items")}
         }
         
         
@@ -67,7 +60,6 @@ class addViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
   
-        importance.selectedSegmentIndex
             
         }
         

@@ -9,26 +9,25 @@ import UIKit
 struct Task{
     var name = ""
     var checked = false
-    var now = Date()
-    func code() {
-        let date = DateFormatter()
-     date.dateStyle = .full
-    print(date.string(from: now))}
-    
-    
+    var priority = 0
+ 
 }
 
 
 class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , AddTask {
     
+  
     
  
     var tasks : [Task] = []
     
     
     
-//     var tasks : [Task] = [Task(name: "", checked: false)]
+
     @IBOutlet weak var tableView: UITableView!
+    
+    
+
     
     @IBAction func deleteButton(_ sender: Any) {
         tasks.removeAll()
@@ -39,18 +38,16 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
    
     
     override func viewDidLoad() {
-//        
-//        tasks.append(Task(name : " "))
+        
+
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
       
         
-//        if !UserDefaults().bool(forKey: "setup"){
-//        UserDefaults().set(true ,forKey: "setup")
-//            UserDefaults().set(0 , forKey: "count")
-//        }
+
+
 
         
        
@@ -72,11 +69,18 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! task
 
-   
+        if tasks[indexPath.row].priority == 0 {
+            cell.addTask.text = "Low" + "           " + tasks[indexPath.row].name
+        }
         
-        
-        cell.addTask.text = tasks[indexPath.row].name
-        
+        if tasks[indexPath.row].priority == 1 {
+            cell.addTask.text = "Medium" + "          " +  tasks[indexPath.row].name
+        }
+        if tasks[indexPath.row].priority == 2 {
+            cell.addTask.text = "High" +  "          " +  tasks[indexPath.row].name
+        }
+
+         
         if tasks[indexPath.row].checked {
             cell.checkTask.image = UIImage(named: "true11")
         } else {
@@ -91,11 +95,11 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         VC.delegate = self
        
     }
-    func addTask(name: String) {
-       
-        tasks.append(Task(name :  name))
-        tableView.reloadData()
-        }
+    func addTask(name : String, priority: Int) {
+        
+         tasks.append(Task(name :  name, priority: priority))
+         tableView.reloadData()
+    }
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -106,38 +110,14 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
       
         }
         
-// 
-//    tableView?(<#T##tableView: UITableView##UITableView#>, editActionsForRowAt: <#T##IndexPath#>)
-        
-        
-        
-        
-        
-        func update(){
-            
-            
-                }
-         
-        }
-        
-        func removeAll(){}
-        
-        
-        
-//
-//        func  viewDidAppear(_animated : Bool){
-//            let itemObject = UserDefaults.standard.object(forKey: "items")
-//            if let tempItem = itemObject as? [String]{
-//
-//                tasks = tempItem
-//
-//            }
-//            tableView.reloadData()
-//        }
-        
-        
 
-
+        
+        
+        
+        
+        
+       
+        
     
     
     }
@@ -148,4 +128,4 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
 
     
     
-
+}
