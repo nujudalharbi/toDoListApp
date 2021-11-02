@@ -9,32 +9,49 @@ import UIKit
 struct Task{
     var name = ""
     var checked = false
-    
+    var now = Date()
+    func code() {
+        let date = DateFormatter()
+     date.dateStyle = .full
+    print(date.string(from: now))}
     
     
 }
 
-class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , AddTask{
-   
-    
-   
-    var tasks : [Task] = [Task(name: "One", checked: true)]
 
+class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , AddTask {
+    
+    
+ 
+    var tasks : [Task] = []
+    
+    
+    
+//     var tasks : [Task] = [Task(name: "", checked: false)]
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func deleteButton(_ sender: Any) {
+        tasks.removeAll()
+        tableView.reloadData()
+    }
     
-
     
    
     
     override func viewDidLoad() {
-        
-        tasks.append(Task(name : "Test object "))
+//        
+//        tasks.append(Task(name : " "))
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
-//        self.tasks = UserDefaults.standard.stringArray(forKey: "items") ?? []
+      
+        
+//        if !UserDefaults().bool(forKey: "setup"){
+//        UserDefaults().set(true ,forKey: "setup")
+//            UserDefaults().set(0 , forKey: "count")
+//        }
+
         
        
     }
@@ -54,15 +71,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! task
-        
-//        if cell.ischeck == false {
-//            cell.checkTask.image = UIImage(named: "true1")
-//            cell.ischeck = true
-//        }else {
-//            cell.checkTask.image = nil
-//            cell.ischeck = false
-//
-//        }
+
    
         
         
@@ -96,9 +105,20 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             tableView.reloadData()
       
         }
- 
         
-        func update(){}
+// 
+//    tableView?(<#T##tableView: UITableView##UITableView#>, editActionsForRowAt: <#T##IndexPath#>)
+        
+        
+        
+        
+        
+        func update(){
+            
+            
+                }
+         
+        }
         
         func removeAll(){}
         
@@ -125,8 +145,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     
     
     
+
     
     
-    
-}
 
