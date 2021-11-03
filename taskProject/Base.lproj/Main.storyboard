@@ -153,10 +153,10 @@
             </objects>
             <point key="canvasLocation" x="1469.5652173913045" y="377.67857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Task-->
         <scene sceneID="yTX-o4-Wfz">
             <objects>
-                <viewController id="Cly-bf-orp" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="edit" id="Cly-bf-orp" customClass="editTask" customModule="taskProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E0Y-Co-rUg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,9 +168,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="editTextField:" destination="dcl-jD-757" eventType="editingDidEnd" id="6de-L1-VfE"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHD-9K-psx">
                                 <rect key="frame" x="50" y="712" width="314" height="50"/>
@@ -181,6 +178,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Edit"/>
+                                <connections>
+                                    <action selector="update:" destination="Cly-bf-orp" eventType="touchUpInside" id="QUh-Dh-KFI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9PV-qd-GOH"/>
@@ -194,9 +194,11 @@
                             <constraint firstItem="9PV-qd-GOH" firstAttribute="trailing" secondItem="nHD-9K-psx" secondAttribute="trailing" constant="50" id="yCV-pT-PaG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="editTextField" destination="SpI-Uu-kvt" id="vpq-cj-en5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzt-Yf-cQq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="dcl-jD-757" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1484.057971014493" y="1063.3928571428571"/>
         </scene>

@@ -23,21 +23,6 @@ class addViewController: UIViewController  {
    
 
   @IBAction func chanheSegment(_ sender: Any) {
-//
-//        if importance.selectedSegmentIndex == 0{
-//            //taskNameOutlet.text = "low"
-//
-//
-//        }
-//        if importance.selectedSegmentIndex == 1{
-//            //taskNameOutlet.text = "Medium"
-//        }
-//
-//        if importance.selectedSegmentIndex == 2{
-//
-//            //taskNameOutlet.text = "High"
-//
-//        }
    }
     
     

@@ -7,12 +7,32 @@
 
 import UIKit
 
+protocol EditTask {
+    func editTask(name : String)
+}
+
 class editTask: UIViewController {
 
-//    var ourTask : [tasks]()
-//    override func viewWillAppear(_ animated: Bool) {
-//        print (ourTask.)
-//    }
+    
+    
+    @IBOutlet weak var editTextField : UITextField!
+    
+    var delegate: EditTask!
+    
+   var ourTask : String!
+    var indexItem : Int!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //print (ourTask.ourList[indexItem])
+        editTextField.text = ourTask
+    }
+
+
+    @IBAction func update(_ sender: Any) {
+        delegate.editTask(name: editTextField.text!)
+        navigationController?.popViewController(animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

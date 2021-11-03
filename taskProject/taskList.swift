@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+struct Task{
+    
+    
+    var name = ""
+    var checked = false
+    var priority = 0
+   
+ 
+}
+class Tasks {
+    
+    var ourList = [Task]()
+}

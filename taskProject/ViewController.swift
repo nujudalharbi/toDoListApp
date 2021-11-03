@@ -8,20 +8,16 @@
 import UIKit
 
 
-struct Task{
-    
-    
-    var name = ""
-    var checked = false
-    var priority = 0
-   
- 
-}
 
-
-class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , AddTask {
+class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , AddTask, EditTask {
     
-
+    var curIndex = 0
+    
+    func editTask(name: String) {
+        tasks[curIndex].name = name
+        tableView.reloadData()
+    }
+    
     var tasks : [Task] = []
     
 
@@ -75,6 +71,14 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         } else {
             tasks[indexPath.row].checked = true
         }
+        
+        let editVC = storyboard?.instantiateViewController(withIdentifier: "edit") as! editTask
+        editVC.delegate = self
+        editVC.ourTask = tasks[indexPath.row].name
+        
+        navigationController?.show(editVC, sender: nil)
+        
+        curIndex = indexPath.row
         tableView.reloadData()
     }
     
@@ -122,7 +126,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
 //
 //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 //        if editingStyle == .delete{
-//
+// .image = UIImage(systemName: "trash")
 //            tasks.remove(at: indexPath.row)
 //            tableView.reloadData()
 //
@@ -153,22 +157,14 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             tableView.endUpdates()
             completionHandler(true)
         }
-        let editAction = UIContextualAction(style: .normal, title: "edite"){(_,_,_) in
-            
-            print ("task favorite ")
-        }
-        
+
         deleteAction.image = UIImage(systemName: "trash")
         
         
-       editAction.image = UIImage(systemName: "heart" )
-
         
-        
-        return UISwipeActionsConfiguration(actions: [deleteAction , editAction])
+        return UISwipeActionsConfiguration(actions: [deleteAction ])
     }
-    
-    
+
 }
     
     
