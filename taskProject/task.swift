@@ -14,7 +14,6 @@ class task: UITableViewCell {
     @IBOutlet weak var addTask: UILabel!
     
   
-    @IBOutlet weak var segument: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

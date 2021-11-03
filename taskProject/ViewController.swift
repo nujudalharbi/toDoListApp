@@ -6,34 +6,46 @@
 //
 
 import UIKit
+
+
 struct Task{
+    
+    
     var name = ""
     var checked = false
     var priority = 0
+   
  
 }
 
 
 class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , AddTask {
     
-  
-    
- 
+
     var tasks : [Task] = []
-    
-    
     
 
     @IBOutlet weak var tableView: UITableView!
     
     
 
-    
-    @IBAction func deleteButton(_ sender: Any) {
-        tasks.removeAll()
-        tableView.reloadData()
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        tasks.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+    }
+    
+    
+    
+    @IBAction func editButton(_ sender: Any) {
+        tableView.isEditing = !tableView.isEditing
+    }
+    
+
+
     
    
     
@@ -70,14 +82,18 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! task
 
         if tasks[indexPath.row].priority == 0 {
-            cell.addTask.text = "Low" + "           " + tasks[indexPath.row].name
+            cell.addTask.text = "🔵Low : " + tasks[indexPath.row].name
+//            cell.addTask.textColor = .blue
         }
         
         if tasks[indexPath.row].priority == 1 {
-            cell.addTask.text = "Medium" + "          " +  tasks[indexPath.row].name
+            cell.addTask.text = "🟢 Medium : "  +  tasks[indexPath.row].name
+//            cell.addTask.textColor = .green
         }
         if tasks[indexPath.row].priority == 2 {
-            cell.addTask.text = "High" +  "          " +  tasks[indexPath.row].name
+            cell.addTask.text = " 🔴 High : " +  tasks[indexPath.row].name
+//            cell.addTask.textColor = .red
+            
         }
 
          
@@ -95,37 +111,65 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         VC.delegate = self
        
     }
+    
+//     add new task
     func addTask(name : String, priority: Int) {
         
          tasks.append(Task(name :  name, priority: priority))
          tableView.reloadData()
     }
     
+//
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete{
+//
+//            tasks.remove(at: indexPath.row)
+//            tableView.reloadData()
+//
+//        }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//    }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
+// delete & favorite
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "delete"){
+            (action , view , completionHandler) in
+        
+            self.tasks.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+            completionHandler(true)
+        }
+        let editAction = UIContextualAction(style: .normal, title: "edite"){(_,_,_) in
             
-            tasks.remove(at: indexPath.row)
-            tableView.reloadData()
-      
+            print ("task favorite ")
         }
         
+        deleteAction.image = UIImage(systemName: "trash")
+        
+        
+       editAction.image = UIImage(systemName: "heart" )
 
         
         
-        
-        
-        
-       
-        
-    
-    
+        return UISwipeActionsConfiguration(actions: [deleteAction , editAction])
     }
     
     
+}
     
     
 
-    
-    
-}

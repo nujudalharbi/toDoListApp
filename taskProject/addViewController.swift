@@ -17,12 +17,12 @@ class addViewController: UIViewController  {
     @IBOutlet weak var importance: UISegmentedControl!
     
     
-    @IBOutlet weak var segmentText: UITextField!
+    
     
     @IBOutlet weak var taskNameOutlet: UITextField!
    
 
-    @IBAction func chanheSegment(_ sender: Any) {
+  @IBAction func chanheSegment(_ sender: Any) {
 //
 //        if importance.selectedSegmentIndex == 0{
 //            //taskNameOutlet.text = "low"
@@ -38,7 +38,7 @@ class addViewController: UIViewController  {
 //            //taskNameOutlet.text = "High"
 //
 //        }
-    }
+   }
     
     
     
@@ -63,37 +63,14 @@ class addViewController: UIViewController  {
             
         }
         
-        
+   
     }
     
 
     
     
     
-    
-    
-//    func textFieldShouldReturn(_ textField : UITextField)-> Bool{
-//        
-//        saveTask()
-//        return true
-//        
-//    }
-//       
-//    
-//    @objc func saveTask(){
-//        guard let text = taskNameOutlet.text, !text.isEmpty else {
-//            
-//            return
-//        }
-//        guard let count = UserDefaults().value(forKey: "count") as? Int else {
-//            return
-//            
-//        }
-//        let newCount = count + 1
-//        UserDefaults().set(newCount , forKey: "count")
-//        UserDefaults().set(text , forKey: "task \(newCount)")
-//        
-//    }
+
 
     
     

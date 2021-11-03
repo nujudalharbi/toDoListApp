@@ -15,6 +15,7 @@
 		9169614C272F31FE00CB1D49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9169614A272F31FE00CB1D49 /* LaunchScreen.storyboard */; };
 		91696154272F35EB00CB1D49 /* task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91696153272F35EB00CB1D49 /* task.swift */; };
 		916C98FF27316C8100776AC5 /* editTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916C98FE27316C8100776AC5 /* editTask.swift */; };
+		916F6329273266D500A82E8E /* taskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F6328273266D500A82E8E /* taskList.swift */; };
 		917314C1272FAA7400A9DCF1 /* addViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917314C0272FAA7400A9DCF1 /* addViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		9169614D272F31FE00CB1D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91696153272F35EB00CB1D49 /* task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task.swift; sourceTree = "<group>"; };
 		916C98FE27316C8100776AC5 /* editTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editTask.swift; sourceTree = "<group>"; };
+		916F6328273266D500A82E8E /* taskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskList.swift; sourceTree = "<group>"; };
 		917314C0272FAA7400A9DCF1 /* addViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 				9169613F272F31FC00CB1D49 /* AppDelegate.swift */,
 				91696141272F31FC00CB1D49 /* SceneDelegate.swift */,
 				91696143272F31FC00CB1D49 /* ViewController.swift */,
+				916F6328273266D500A82E8E /* taskList.swift */,
 				916C98FE27316C8100776AC5 /* editTask.swift */,
 				917314C0272FAA7400A9DCF1 /* addViewController.swift */,
 				91696153272F35EB00CB1D49 /* task.swift */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91696154272F35EB00CB1D49 /* task.swift in Sources */,
+				916F6329273266D500A82E8E /* taskList.swift in Sources */,
 				91696144272F31FC00CB1D49 /* ViewController.swift in Sources */,
 				91696140272F31FC00CB1D49 /* AppDelegate.swift in Sources */,
 				917314C1272FAA7400A9DCF1 /* addViewController.swift in Sources */,
