@@ -11,15 +11,8 @@ import UIKit
 
 class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , AddTask, EditTask {
     
-    var curIndex = 0
-    
-    func editTask(name: String) {
-        tasks[curIndex].name = name
-        tableView.reloadData()
-    }
-    
+  
     var tasks : [Task] = []
-    
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -40,10 +33,6 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         tableView.isEditing = !tableView.isEditing
     }
     
-
-
-    
-   
     
     override func viewDidLoad() {
         
@@ -51,15 +40,13 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+    }
       
         
-
-
-
+//-------
         
-       
-    }
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
@@ -81,6 +68,10 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         curIndex = indexPath.row
         tableView.reloadData()
     }
+     
+    
+    
+    //----------
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! task
@@ -116,6 +107,10 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
        
     }
     
+    
+    
+    
+    
 //     add new task
     func addTask(name : String, priority: Int) {
         
@@ -123,47 +118,34 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
          tableView.reloadData()
     }
     
-//
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete{
-// .image = UIImage(systemName: "trash")
-//            tasks.remove(at: indexPath.row)
-//            tableView.reloadData()
-//
-//        }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//    }
     
-// delete & favorite
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "delete"){
-            (action , view , completionHandler) in
-        
-            self.tasks.remove(at: indexPath.row)
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.endUpdates()
-            completionHandler(true)
+    
+    
+    
+ // editing task
+    
+    var curIndex = 0
+    
+    func editTask(name: String) {
+        tasks[curIndex].name = name
+        tableView.reloadData()
+    }
+    
+    
+    
+    
+//   delete task
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+
+            tasks.remove(at: indexPath.row)
+            tableView.reloadData()
+
         }
 
-        deleteAction.image = UIImage(systemName: "trash")
-        
-        
-        
-        return UISwipeActionsConfiguration(actions: [deleteAction ])
     }
+    
 
 }
     

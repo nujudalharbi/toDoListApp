@@ -13,7 +13,7 @@ protocol AddTask {
 
 class addViewController: UIViewController  {
 
-    
+    var delegate : AddTask?
     @IBOutlet weak var importance: UISegmentedControl!
     
     
@@ -22,8 +22,8 @@ class addViewController: UIViewController  {
     @IBOutlet weak var taskNameOutlet: UITextField!
    
 
-  @IBAction func chanheSegment(_ sender: Any) {
-   }
+    @IBAction func chanheSegment(_ sender: Any) {
+      }
     
     
     
@@ -36,12 +36,9 @@ class addViewController: UIViewController  {
             navigationController?.popViewController(animated: true)
             
         }
-        
-        
-        
        
     }
-    var delegate : AddTask?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
   

@@ -170,7 +170,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHD-9K-psx">
-                                <rect key="frame" x="50" y="712" width="314" height="50"/>
+                                <rect key="frame" x="50" y="403" width="314" height="50"/>
                                 <color key="backgroundColor" red="0.12316628910000001" green="0.37965125649999998" blue="0.088543747739999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="v2P-rf-qKi"/>
@@ -187,8 +187,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="SpI-Uu-kvt" firstAttribute="leading" secondItem="9PV-qd-GOH" secondAttribute="leading" constant="20" id="4cM-2t-HUO"/>
-                            <constraint firstItem="9PV-qd-GOH" firstAttribute="bottom" secondItem="nHD-9K-psx" secondAttribute="bottom" constant="100" id="ApF-lD-KTf"/>
                             <constraint firstItem="9PV-qd-GOH" firstAttribute="trailing" secondItem="SpI-Uu-kvt" secondAttribute="trailing" constant="20" id="SbU-4d-wG7"/>
+                            <constraint firstItem="nHD-9K-psx" firstAttribute="top" secondItem="SpI-Uu-kvt" secondAttribute="bottom" constant="229" id="TSr-Kg-WC2"/>
                             <constraint firstItem="SpI-Uu-kvt" firstAttribute="top" secondItem="9PV-qd-GOH" secondAttribute="top" constant="80" id="sjf-jj-bIZ"/>
                             <constraint firstItem="nHD-9K-psx" firstAttribute="leading" secondItem="9PV-qd-GOH" secondAttribute="leading" constant="50" id="uIP-5Y-Epe"/>
                             <constraint firstItem="9PV-qd-GOH" firstAttribute="trailing" secondItem="nHD-9K-psx" secondAttribute="trailing" constant="50" id="yCV-pT-PaG"/>

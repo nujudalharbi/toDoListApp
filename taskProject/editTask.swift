@@ -18,12 +18,13 @@ class editTask: UIViewController {
     @IBOutlet weak var editTextField : UITextField!
     
     var delegate: EditTask!
-    
-   var ourTask : String!
+    var ourTask : String!
     var indexItem : Int!
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
-        //print (ourTask.ourList[indexItem])
+       
         editTextField.text = ourTask
     }
 
@@ -33,6 +34,7 @@ class editTask: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
