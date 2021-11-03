@@ -98,6 +98,14 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             cell.checkTask.image = nil
         }
         
+        cell.taskFavorite.tag = indexPath.row
+        cell.taskFavorite.addTarget(self , action: #selector(addFavorite(sender:)), for : .touchUpInside)
+        
+        
+        
+        
+        
+        
         return cell
     }
     
@@ -145,6 +153,15 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         }
 
     }
+    
+    
+    
+    //------
+    
+    @objc func addFavorite (sender : UIButton){
+        sender.setImage(UIImage(systemName: "heart.fill") , for : .normal )
+         
+     }
     
 
 }

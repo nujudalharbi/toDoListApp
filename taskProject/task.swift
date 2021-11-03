@@ -13,7 +13,8 @@ class task: UITableViewCell {
     
     @IBOutlet weak var addTask: UILabel!
     
-  
+    @IBOutlet weak var taskFavorite: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
