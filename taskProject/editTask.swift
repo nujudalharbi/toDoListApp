@@ -9,10 +9,10 @@ import UIKit
 
 class editTask: UIViewController {
 
-    var ourTask : [tasks]()
-    override func viewWillAppear(_ animated: Bool) {
-        print (ourTask.)
-    }
+//    var ourTask : [tasks]()
+//    override func viewWillAppear(_ animated: Bool) {
+//        print (ourTask.)
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
