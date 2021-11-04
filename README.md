@@ -11,7 +11,7 @@ This application helps us to write  tasks  and not to postpone them for tomorrow
 Usage :
 
 * Four interfaces(Home , add , edit , show) . 
-* Two protocol (AddTask , EditTask , UITableViewDelegate , UITableViewDataSource )
+* Four protocol (AddTask , EditTask , UITableViewDelegate , UITableViewDataSource )
 * Struct (Task)
 *Class (Tasks , ViewController , editTask , addViewController , task)
 
