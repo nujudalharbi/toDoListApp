@@ -10,10 +10,10 @@ This application helps us to write  tasks  and not to postpone them for tomorrow
 
 Usage :
 
-* used four interfaces(Home , add , edit , show) . 
-* used two protocol (AddTask , EditTask , UITableViewDelegate , UITableViewDataSource )
-* Use struct (Task)
-* Use class (Tasks , ViewController , editTask , addViewController , task)
+* Four interfaces(Home , add , edit , show) . 
+* Two protocol (AddTask , EditTask , UITableViewDelegate , UITableViewDataSource )
+* Struct (Task)
+*Class (Tasks , ViewController , editTask , addViewController , task)
 
 
 Known Issues :
@@ -23,4 +23,4 @@ Known Issues :
 
 Upcoming Features :
 * Save the data to UserDefaults .
-*  Add time and day and Send an alert when the task is due .
+*  Add time and day,  Send an alert when the task is due .
